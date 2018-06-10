@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,6 +55,7 @@ public class AdminService  {
 	
 	//author operations
 	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/author", method=RequestMethod.POST,consumes="application/json")
 	public void saveAuthor(@RequestBody Author author) throws SQLException
@@ -72,6 +74,7 @@ public class AdminService  {
 	}
 	
 	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/authors",method=RequestMethod.GET,produces="application/json")
 	public List<Author> readAuthor() throws SQLException
@@ -92,7 +95,7 @@ public class AdminService  {
 		return null;
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/authors/{authorName}",method=RequestMethod.GET,produces="application/json")
 //	public List<Author> readAuthorsByName(@RequestParam String authorName) throws SQLException
@@ -123,7 +126,7 @@ public class AdminService  {
 		return null;
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/authors/{authorId}",method=RequestMethod.PUT,produces="application/json")
 //	public void updateAuthor(@RequestBody Author author) throws SQLException
@@ -136,7 +139,7 @@ public class AdminService  {
 			}
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/authors/{authorId}",method=RequestMethod.DELETE,produces="application/json")
 	public void deleteAuthor(@PathVariable("authorId") Integer authorId) throws SQLException
@@ -171,6 +174,7 @@ public class AdminService  {
 			}
 	}
 	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/genres",method=RequestMethod.GET,produces="application/json")
 	public List<Genre> readGenre() throws SQLException
@@ -191,6 +195,8 @@ public class AdminService  {
 		return null;
 	}
 	
+	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/genres/{genre_name}",method=RequestMethod.GET,produces="application/json")
 //	public List<Genre> readGenresByName(@RequestParam String name) throws SQLException
@@ -222,6 +228,7 @@ public class AdminService  {
 		return null;
 	}
 	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/genres/{genre_Id}",method=RequestMethod.PUT,produces="application/json")
 //	public void updateGenre(@RequestBody Genre genre) throws SQLException
@@ -235,7 +242,7 @@ public class AdminService  {
 			}
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/genres/{genre_Id}",method=RequestMethod.DELETE,produces="application/json")
 //	public void deleteGenre(@RequestBody Genre genre) throws SQLException
@@ -252,7 +259,7 @@ public class AdminService  {
 	//Book Operations
 	
 	
-
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/book",method=RequestMethod.POST,consumes="application/json")
 	public void saveBook(@RequestBody Book book) throws SQLException
@@ -278,6 +285,7 @@ public class AdminService  {
 	}
 	
 	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/books",method=RequestMethod.GET,produces="application/json")
 	public List<Book> readBook() throws SQLException
@@ -308,9 +316,9 @@ public class AdminService  {
 		return null;
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
-	@RequestMapping(value="/books/{title}",method=RequestMethod.GET,produces="application/json")
+	@RequestMapping(value="/books/title/{title}",method=RequestMethod.GET,produces="application/json")
 //	public List<Book> readBookByName(@RequestParam String name) throws SQLException
 	public List<Book> readBookByName(@PathVariable("title") String title) throws SQLException
 	{
@@ -349,7 +357,7 @@ public class AdminService  {
 		return null;
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/books/{bookId}",method=RequestMethod.PUT,produces="application/json")
 	public void updateBook(@PathVariable("bookId") Integer bookId,@RequestBody Book book) throws SQLException
@@ -361,7 +369,7 @@ public class AdminService  {
 			}
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/books/{bookId}",method=RequestMethod.DELETE,produces="application/json")
 	public void deleteBook(@PathVariable("bookId") Integer bookId) throws SQLException
@@ -377,7 +385,7 @@ public class AdminService  {
 	
 	//publisher operations
 
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/publisher",method=RequestMethod.POST,consumes="application/json")
 	public void savePublisher(@RequestBody Publisher publisher) throws SQLException
@@ -389,6 +397,7 @@ public class AdminService  {
 			}
 	}
 	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/publishers",method=RequestMethod.GET,produces="application/json")
 	public List<Publisher> readPublisher() throws SQLException
@@ -409,7 +418,7 @@ public class AdminService  {
 			return null;
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/publishers/{publisherName}",method=RequestMethod.GET,produces="application/json")
 //	public List<Publisher> readPublisherByNme(@RequestParam String name) throws SQLException
@@ -440,7 +449,7 @@ public class AdminService  {
 			return null;
 	}
 	
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/publishers/{publisherId}",method=RequestMethod.PUT,produces="application/json")
 	public void updatePublisher(@PathVariable("publisherId") Integer publisherId,@RequestBody Publisher publisher) throws SQLException
@@ -455,7 +464,7 @@ public class AdminService  {
 
 	
 	
-
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/publishers/{publisherId}",method=RequestMethod.DELETE,produces="application/json")
 	public void deletePublisher(@PathVariable("publisherId") Integer publisherId) throws SQLException
@@ -472,7 +481,7 @@ public class AdminService  {
 	
 	//BookLoans Operations
 
-	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/bookLoans",method=RequestMethod.GET,produces="application/json")
 	public List<BookLoans> readAllBookLoans() throws SQLException
@@ -499,6 +508,7 @@ public class AdminService  {
 		return null;
 	}
 	
+	@CrossOrigin
 	@Transactional
 	@RequestMapping(value="/bookLoans/{cardNo}",method=RequestMethod.GET,produces="application/json")
 //	public List<BookLoans> readBookLoansByUserId(@RequestParam Integer cardNo) throws SQLException
